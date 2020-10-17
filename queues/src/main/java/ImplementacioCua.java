@@ -5,16 +5,16 @@ public class ImplementacioCua<E> implements Cua<E> {
     private int p;
 
     public ImplementacioCua(int len) {
-        this.data = (E[])new Object[len];
+        this.data = (E[]) new Object[len];
         this.p = 0;
     }
 
-    public void push(E e){
-        if (this.estaPle()) throw new ExcepcioCuaCompleta();
+    public void push(E e) throws ExcepcioCuaCompleta {
+        if (this.estaPle()) throw new ExcepcioCuaCompleta("Error cola llena");
         this.data [this.p++] = e;
     }
     public E pop() throws ExcepcioCuaBuida{
-        if (this.estaBuit()) throw new ExcepcioCuaBuida;
+        if (this.estaBuit()) throw new ExcepcioCuaBuida("Error cola vacia");
         E ret = this.data[0];
         for (int i=0; i<this.p; i++){
             this.data[i] = this.data[i+1];

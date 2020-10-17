@@ -12,6 +12,11 @@ public class TestImplementacioCua {
         this.c.push("1");
         this.c.push("2");
     }
+    @After
+    public void tearDown(){
+        this.c = null;
+    }
+
     @Test
     public void testPush1() throws Exception{
         Assert.assertEquals(2, this.c.size());
@@ -42,7 +47,7 @@ public class TestImplementacioCua {
         Assert.assertEquals("1", un);
 
         String dos = this.c.pop();
-        Assert.assertEquals(1, this.c.size());
+        Assert.assertEquals(0, this.c.size());
         Assert.assertEquals("2", dos);
 
     }
@@ -54,7 +59,7 @@ public class TestImplementacioCua {
         Assert.assertEquals("1", un);
 
         String dos = this.c.pop();
-        Assert.assertEquals(1, this.c.size());
+        Assert.assertEquals(0, this.c.size());
         Assert.assertEquals("2", dos);
 
         String tres = this.c.pop();
